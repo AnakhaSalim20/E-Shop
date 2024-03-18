@@ -1,0 +1,21 @@
+{% extends 'adminindex.html' %}
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews</title>
+</head>
+<body>
+    <h1>Customer Reviews</h1>
+    <ul>
+        {% for Review in data %}
+            <li>
+                <strong>Rating:</strong> {{ Review.rate }}<br>
+                <strong>Comment:</strong> {{ Review.comment }}<br>
+                <strong>Created At:</strong> {{ Review.created_at }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

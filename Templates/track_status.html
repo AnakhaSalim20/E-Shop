@@ -1,0 +1,22 @@
+<!-- track_status.html -->
+{% extends 'adminindex.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Status</title>
+</head>
+<body>
+    <h1>Product Status</h1>
+    <ul>
+        {% for productss in products %}
+            <li>{{ productss.prodname }}: {{ productss.status }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,298 @@
+<!-- /*
+* Bootstrap 5
+* Template Name: Furni
+* Template Author: Untree.co
+* Template URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="bootstrap, bootstrap4" />
+
+		<!-- Bootstrap CSS -->
+		<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="{ % static'css/tiny-slider.css' %}" rel="stylesheet">
+		<link href="{ % static'css/style.css' %}" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+		<link href="http://localhost:8000/static/css/style.css" rel="stylesheet">
+		<link href="http://localhost:8000/static/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://localhost:8000/static/css/tiny-slider.css" rel="stylesheet">
+
+		<title>Furni Free Bootstrap 5 Template for Furniture and Interior Design Websites by Untree.co </title>
+		<style>
+			/* Custom CSS to change the background color of the dropdown menu */
+			.dropdown-menu {
+				background-color: black; /* Change this to the desired color */
+			}
+			
+			.product-item {
+    position: relative;
+}
+
+.product-thumbnail {
+    position: relative;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust background color and opacity */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-thumbnail:hover .overlay {
+    opacity: 1;
+}
+
+.view-details {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #333; /* Adjust background color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+	justify-content: flex-start;
+	left: 0; 
+	bottom: 0;
+	display: flex;
+	position: absolute;
+
+}
+.container mt-5{
+column-gap: 10px;}
+.view-details:hover {
+    background-color: #555; /* Adjust background color on hover */
+}
+
+.small {
+    font-size: 24px; 
+	
+}
+.smalll{
+	font-size: 19px;
+}
+
+		</style>
+	</head>
+
+	<body>
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" href="index.html">E Shop<span></span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" href="/index">Home</a>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Shop
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+								<li><a class="dropdown-item" href="/shop">Shop</a></li>
+								<li><a class="dropdown-item" href="/add_complaint/">About Complaints</a></li>
+								<li><a class="dropdown-item" href="#">Category 3</a></li>
+								<!-- Add more categories as needed -->
+							</ul>
+						</li>
+						<li><a class="nav-link" href="/about/">About us</a></li>
+						<li><a class="nav-link" href="/service">Services</a></li>
+						<li><a class="nav-link" href="/blog">Blog</a></li>
+						<li><a class="nav-link" href="/contact/">Contact us</a></li>
+						<li><a class="nav-link" href="{% url 'loginpage' %}">Login</a></li>
+						<li><a class="nav-link" href="/logout_request">Logout</a></li>
+
+					</ul>
+	
+
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						<li><a class="nav-link" href="#"><img src="{% static 'images/user.svg' %}"></a></li>
+						<li><a class="nav-link" href="view_cart">
+							<img src="{% static 'images/cart.svg' %}">
+						</a></li>
+					</ul>
+				</div>
+			</div>
+				
+		</nav>
+		<!-- End Header/Navigation -->
+
+		<!-- Start Hero Section -->
+			<!--<div class="hero">
+				<div class="container">
+					<div class="row justify-content-between">
+						<div class="col-lg-5">
+							<div class="intro-excerpt">
+								<h1>Shop</h1>
+								<p class="mb-4">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique.</p>
+								<p><a href="" class="btn btn-secondary me-2">Shop Now</a><a href="#" class="btn btn-white-outline">Explore</a></p>
+							</div>
+						</div>
+						<div class="col-lg-7">
+							<div class="hero-img-wrap">
+								<img src="{% static 'images/an1.jpg' %}" class="img-fluid" height="600px" width="450px">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>-->
+		<!-- End Hero Section -->
+
+		<div class="container mt-5"> <!-- Add mt-5 class here for margin-top -->
+
+			<div class="row">
+				{% for i in data %}
+				<div class="col-12 col-md-4 col-lg-3 mb-5">
+					<div class="product-item">
+						<div class="product-thumbnail">
+							<img src="{{i.image.url}}" class="img-fluid" alt="Product Image">
+							<div class="overlay">
+								<a href="{% url 'pro' i.id %}" class="view-details">View Details</a>
+								<!-- Update this link in shop.html --
+								"{% url 'pro' i.id %}"-->
+							</div>
+						</div>
+						<div class="product-details">
+							<h3 class="product-title small">{{i.prodname}}</h3>
+							<strong class="product-price smalll">{{i.price}}</strong>
+						</div>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+
+		<!-- Start Footer Section -->
+		<footer class="footer-section">
+			<div class="container relative">
+
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="subscription-form">
+							<h3 class="d-flex align-items-center"><span class="me-1"><img src="{%static 'images/envelope-outline.svg' %}" alt="Image" class="img-fluid"></span><span>Subscribe to Newsletter</span></h3>
+
+							<form action="#" class="row g-3">
+								<div class="col-auto">
+									<input type="text" class="form-control" placeholder="Enter your name">
+								</div>
+								<div class="col-auto">
+									<input type="email" class="form-control" placeholder="Enter your email">
+								</div>
+								<div class="col-auto">
+									<button class="btn btn-primary">
+										<span class="fa fa-paper-plane"></span>
+									</button>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+
+				<div class="row g-5 mb-5">
+					<div class="col-lg-4">
+						<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">E Shop<span>.</span></a></div>
+						<p class="mb-4">
+							My Furniture Store has truly redefined my approach to furnishing.
+						</p>
+
+						<ul class="list-unstyled custom-social">
+							<li><a href="#"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-twitter"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-instagram"></span></a></li>
+							<li><a href="#"><span class="fa fa-brands fa-linkedin"></span></a></li>
+						</ul>
+					</div>
+
+					<div class="col-lg-8">
+						<div class="row links-wrap">
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">About us</a></li>
+									<li><a href="#">Services</a></li>
+									<li><a href="#">Blog</a></li>
+									<li><a href="#">Contact us</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">Support</a></li>
+									<li><a href="#">Knowledge base</a></li>
+									<li><a href="#">Live chat</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">Jobs</a></li>
+									<li><a href="#">Our team</a></li>
+									<li><a href="#">Leadership</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+								</ul>
+							</div>
+
+							<div class="col-6 col-sm-6 col-md-3">
+								<ul class="list-unstyled">
+									<li><a href="#">Nordic Chair</a></li>
+									<li><a href="#">Kruzo Aero</a></li>
+									<li><a href="#">Ergonomic Chair</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="border-top copyright">
+					<div class="row pt-4">
+						<div class="col-lg-6">
+							<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a>  Distributed By <a href="https://themewagon.com">ThemeWagon</a> <!-- License information: https://untree.co/license/ -->
+            </p>
+						</div>
+
+						<div class="col-lg-6 text-center text-lg-end">
+							<ul class="list-unstyled d-inline-flex ms-auto">
+								<li class="me-4"><a href="#">Terms &amp; Conditions</a></li>
+								<li><a href="#">Privacy Policy</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</footer>
+		<!-- End Footer Section -->	
+
+
+		<script src="{%static 'js/bootstrap.bundle.min.js' %}"></script>
+		<script src="{%static 'js/tiny-slider.js'%}"></script>
+		<script src="{%static 'js/custom.js' %}"></script>
+	</body>
+
+</html>
