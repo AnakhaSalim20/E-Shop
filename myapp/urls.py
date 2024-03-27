@@ -38,7 +38,14 @@ urlpatterns=[
     path('review_success',views.review_success,name='review_success'),
     path('view_reviews',views.view_reviews,name='view_reviews'),
     path('view_booking/',views.view_booking, name='view_booking'),
-    path('stock/',views.stock, name='stock'),
+    path('admin_view_cart',views.admin_view_cart,name='admin_view_cart'),
+    path('custorders',views.custorders,name='custorders'),
+    path('addorder',views.addorder,name='addorder'),
+    path('vieworder',views.vieworder,name='vieworder'),
+    path('updateorder/<int:id>/',views.updateorder,name='updateorder'),
+    path('vieworder',views.vieworder,name='vieworder'),
+
+    
 
 
 

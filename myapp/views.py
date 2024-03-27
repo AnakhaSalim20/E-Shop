@@ -7,9 +7,9 @@ from django.contrib.auth import login
 from django.contrib.auth import logout
 from myapp.forms import ProductForm, customerreg, userreg
 from myapp.models import Complaint, Pay, Payment, Product, CartItem,Review
-from .forms import ComplaintForm, PaymentForm, ReviewForm
+from .forms import ComplaintForm, OrderForm, PaymentForm, ReviewForm
 from django.shortcuts import render, get_object_or_404
-from .models import  Paystatus, productss
+from .models import  Order, Paystatus
 from .models import Paymentz
 
 def add_complaint(request):
@@ -121,9 +121,59 @@ def logout_request(request):
     messages.info(request,"Logged Out Successfully")
     return redirect("home")
 
-def pro(request,id):
-    data=Product.objects.get(id=id)
-    return render(request, 'product_detail.html', {'data': data})
+#def pro(request,id):
+ #   data=Product.objects.get(id=id)
+  #  return render(request, 'product_detail.html', {'data': data})
+
+def pro(request, id):
+    # Retrieve the product object from the database
+    product = Product.objects.get(id=id)
+    
+    # Pass the product object and its stock_available field to the template
+    context = {
+        'data': product,
+        'stock_available': product.stock_available
+    }
+    
+    return render(request, 'product_detail.html', context)
+
+def admin_view_cart(request):
+    # Retrieve all cart items from all users
+    cart_items = CartItem.objects.all()
+    context = {
+        'cart_items': cart_items
+
+    }
+    return render(request, 'view_cart.html', context)
+
+
+def order_list(request):
+    orders = Order.objects.all()
+    return render(request, 'order.html', {'orders': orders})
+
+def addorder(request):
+    form = OrderForm()
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin')  
+    return render(request, 'add_status.html', {'form': form})
+
+def vieworder(request):
+    orders=Order.objects.all()
+    return render(request,'view_status.html',{'orders': orders})
+
+def updateorder(request,id):
+    orders=Order.objects.get(id=id)
+    form=OrderForm(instance=orders)
+    if request.method=='POST':
+        form=OrderForm(request.POST,instance=orders)
+        if form.is_valid():
+            form.save()
+            return redirect('vieworder')
+    return render(request,'updateorder.html',{'form':form})
+
 
 def view_cart(request):
     cart_items = CartItem.objects.filter(user=request.user)
@@ -278,9 +328,20 @@ def view_booking(request):
     user_pay=Paymentz.objects.all()
     return render(request,'booking.html', {'user_pay': user_pay})
 
-def stock(request):
-    products = productss.objects.all()
-    return render(request, 'stock.html', {'products': products})
 
+def custorders(request):
+    if request.method == 'POST':
+        order_number = request.POST.get('order_number')
+        prodname = request.POST.get('prodname')
+       
+        try:
+            orders = Order.objects.get(order_number=order_number, product__prodname=prodname)
+            status = orders.status
+            return render(request, 'myorder.html', {'orders': orders, 'status': status})
+        except Order.DoesNotExist:
+            error_message = "Order not found for the given order number and product name."
+            return render(request, 'myorder.html', {'error_message': error_message})
+
+    return render(request, 'myorder.html')
 
 

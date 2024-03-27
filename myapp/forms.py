@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 
-from myapp.models import Complaint, Customer, Paymentz, Product, Review, User,Payments
+from myapp.models import Complaint, Customer, Order, Paymentz, Product, Review, User,Payments
 
 class dateinput(forms.DateInput):
     input_type='date'
@@ -36,6 +36,11 @@ class ReviewForm(forms.ModelForm):
     class Meta:
         model= Review
         fields = ['rate','comment']
+
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model=Order
+        fields=['order_number','user','product','status']
 
 
   

@@ -25,6 +25,8 @@ class Product(models.Model):
     image1 = models.ImageField(upload_to='images1')  
     image2 = models.ImageField(upload_to='images2')  
     image3 = models.ImageField(upload_to='images3')
+    stock_available = models.IntegerField(default=0)
+
 
     def __str__(self):
         return self.prodname
@@ -113,9 +115,18 @@ class Paymentz(models.Model):
     def __str__(self):
         return f"Payment of ${self.amount} made at {self.timestamp}"
       
-class productss(models.Model):
-    prodname = models.CharField(max_length=100)
-    status = models.CharField(max_length=50, choices=[('In Stock', 'In Stock'), ('Out of Stock', 'Out of Stock')])
+class Order(models.Model):
+    STATUS_CHOICES = [
+        ('PENDING', 'Pending'),
+        ('SHIPPED', 'Shipped'),
+        ('DELIVERED','Delivered'),
+        ('CANCELLED', 'Cancelled'),
 
-    def __str__(self):
-        return self.prodname      
+    ]
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    product=models.ForeignKey(Product,on_delete=models.CASCADE)
+    status=models.CharField(max_length=20, choices=STATUS_CHOICES)
+    order_number=models.IntegerField()
+
+
+

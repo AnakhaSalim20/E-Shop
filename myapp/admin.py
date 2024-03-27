@@ -10,5 +10,4 @@ admin.site.register(models.CartItem)
 admin.site.register(models.Payments)
 admin.site.register(models.Review)
 admin.site.register(models.Paymentz)
-admin.site.register(models.productss)
-
+admin.site.register(models.Order)
